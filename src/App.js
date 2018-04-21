@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import StationDetails from './stationDetails.js';
 import StationSelector from './stationSelector.js';
 import './App.css';
+import './bootstrap/bootstrap.min.css';
+
 
 class App extends Component {
   render() {
