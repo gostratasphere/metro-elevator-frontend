@@ -24,7 +24,11 @@ class StationDetails extends Component {
         }
         return entrances;
     }
-
+    parseIncidentHTML() {
+        if (this.props.incidentHTML) {
+            document.getElementById("elevator-warning").innerHTML = this.props.incidentHTML;
+        }
+    }
     parseIncidents() {
         let warnings = [];
         if (this.props.incidents && this.props.incidents.length > 0) {
@@ -49,11 +53,11 @@ class StationDetails extends Component {
         return (
             <div className="col-lg-12 text-left" id="display-container">
                 {/* <h2 id="station-name-head">{this.props.stationName}</h2> */}
-                <ul className="list-unstyled" id="entrance-list">
+                {/* <ul className="list-unstyled" id="entrance-list">
                     {this.entranceList()}
-                </ul>
+                </ul> */}
                 <div id="elevator-warning">
-                {this.parseIncidents()}
+                {this.parseIncidentHTML()}
                 </div>
             </div>
         );

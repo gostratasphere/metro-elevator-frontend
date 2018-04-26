@@ -57,7 +57,7 @@ class StationSelector extends Component {
 
                     <p className="lead">
                     <form>
-                        <select autofocus className="form-control form-control-lg" id='station-selector' onChange={this.handleChange}>
+                        <select className="form-control form-control-lg" id='station-selector' onChange={this.handleChange}>
                         { this.stationList() }
                         </select>
                     </form>

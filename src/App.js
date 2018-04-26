@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import StationDetails from './stationDetails.js';
-import ReactDOM from 'react-dom';
 import StationSelector from './stationSelector.js';
 import './App.css';
 import './bootstrap/bootstrap.min.css';
@@ -31,13 +30,18 @@ class App extends Component {
             });
         })
     })
+    fetch('/stat?name=' + data).then(d => {
+      d.text().then(text => {
+        this.setState({incidentHTML: text})
+      })
+    })
   }
 
   render() {
     return (
       <div className="App container">
       <StationSelector stationGetter={this.stationSelectorCallback}></StationSelector>
-      <StationDetails stationName={this.state.stationName} entrances={this.state.entrances} incidents={this.state.incidents}></StationDetails>
+      <StationDetails stationName={this.state.stationName} entrances={this.state.entrances} incidents={this.state.incidents} incidentHTML={this.state.incidentHTML}></StationDetails>
       </div>
     );
   }
