@@ -4,6 +4,10 @@ jobs:
     docker:
       - image: circleci/node:6
     steps:
+      - checkout
+      - run:
+          name: Install NPM
+          command: npm install
       - run:
           name: Build the React application
           command: npm run build
