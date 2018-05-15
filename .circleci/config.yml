@@ -11,15 +11,12 @@ jobs:
       - run:
           name: Build the React application
           command: npm run build
-  #  build and test jobs go here
-  deploy-job:
-    docker:
-      - image: circleci/node:6
-  #  working_directory: /tmp/my-project
-    steps:
       - run:
           name: Install AWS CLI
           command: sudo apt-get install awscli
+  deploy-job:
+    working_directory: ~/metro-elevator-frontend
+    steps:
       - run:
           name: Deploy to S3 if tests pass and branch is Master
           command: aws s3 sync build/ s3://metro-elevator-frontend --delete
