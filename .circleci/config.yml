@@ -1,5 +1,12 @@
 version: 2
 jobs:
+  build-job:
+    docker:
+      - image: circleci/node:6
+    steps:
+      - run:
+          name: Build the React application
+          command: npm run build
   #  build and test jobs go here
   deploy-job:
     docker:
