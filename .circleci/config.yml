@@ -19,7 +19,7 @@ jobs:
     steps:
       - run:
           name: Install AWS CLI
-          command: apt-get install awscli
+          command: sudo apt-get install awscli
       - run:
           name: Deploy to S3 if tests pass and branch is Master
           command: aws s3 sync build/ s3://metro-elevator-frontend --delete
